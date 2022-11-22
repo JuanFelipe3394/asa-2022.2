@@ -22,7 +22,20 @@ services:
     restart: always
     tty: true
     ports:
-      - "8081:80"
+      - "8080:80"
+    networks:
+      - asa-network
+
+  web03:
+    build:
+      context: ./web03
+      dockerfile: Dockerfile.dockerfile
+    image: web03
+    container_name: web03
+    restart: always
+    tty: true
+    ports:
+      - "8080:80"
     networks:
       - asa-network
 
